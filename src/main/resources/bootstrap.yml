@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      uri: http://localhost:8888
+      label: main
+  profiles:
+    active: prod
+#    active: dev
+
+server:
+  port: 8887
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
