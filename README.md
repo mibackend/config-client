@@ -41,3 +41,18 @@
     "datasource.password": "prod_password"
   }
 }
+
+增加 actuator 配置，实现自动刷新发送。
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+POST 请求到 http://localhost:端口/actuator/refresh 这个接口
+
+
+
+参考：
+https://www.cnblogs.com/fengzheng/p/11242128.html
+
