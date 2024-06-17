@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: prod
+#    active: dev
+
+server:
+  port: 8887
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

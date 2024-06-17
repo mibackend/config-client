@@ -3,21 +3,15 @@ spring:
     name: config-client
   cloud:
     config:
-      uri: http://localhost:8888
+      # 如果直接通过URL访问config-server，可以启用这行并注释掉discovery.enabled
+      #使用URI的方式适用于简单的部署场景，不需要依赖服务发现机制。
+      #      uri: http://localhost:8888
+      # 使用服务发现机制。使用服务名的方式需要依赖服务发现机制，比如 Eureka
+      name: config-server
+      discovery:
+        enabled: true
       label: main
-  profiles:
-    active: prod
-#    active: dev
-
-server:
-  port: 8887
-
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
+      profile: ${spring.profiles.active}
 
 eureka:
   client:
